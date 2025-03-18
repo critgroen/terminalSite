@@ -14,12 +14,12 @@
 <body>
     <div class="video-background">
         <video playsinline autoplay muted loop id="bgVideo">
-            <!-- Default video for desktop and mobile -->
-            <source id="desktopVideo" src="Motion Design Title.webm" type="video/webm">
+            <!-- Default video for desktop -->
+            <source id="desktopVideoWebM" src="Motion Design Title.webm" type="video/webm">
             <source id="desktopVideoMp4" src="Motion Design Title.mp4" type="video/mp4">
 
             <!-- Mobile video (this will be dynamically switched with JavaScript) -->
-            <source id="mobileVideo" src="Motion Design Mobile.webm" type="video/webm">
+            <source id="mobileVideoWebM" src="Motion Design Mobile.webm" type="video/webm">
             <source id="mobileVideoMp4" src="Motion Design Mobile.mp4" type="video/mp4">
 
             Your browser does not support the video tag.
@@ -28,33 +28,40 @@
 
     <div class="content">
         <ul>
-            <li><a href="https://www.dropbox.com/scl/fi/eynrrlfrygq4ujk7tptfd/AnimationReel2024.mp4?rlkey=j0agbnr56ej8c503xi17tktoq&st=xclk6ud0&dl=0" target="_blank"class="rosarivo-regular">animation</a></li>
-            <li><a href="https://www.dropbox.com/scl/fi/56royfudqlxqbdojvenj3/MOTIONGRAPHICS_Reel-2025.mp4?rlkey=8wmqrlpglz6i747n9b609knfz&st=fxpfirj6&dl=0" target="_blank"class="rosarivo-regular">motion design</a></li>
+            <li><a href="https://www.dropbox.com/scl/fi/eynrrlfrygq4ujk7tptfd/AnimationReel2024.mp4?rlkey=j0agbnr56ej8c503xi17tktoq&st=xclk6ud0&dl=0" target="_blank" class="rosarivo-regular">animation</a></li>
+            <li><a href="https://www.dropbox.com/scl/fi/56royfudqlxqbdojvenj3/MOTIONGRAPHICS_Reel-2025.mp4?rlkey=8wmqrlpglz6i747n9b609knfz&st=fxpfirj6&dl=0" target="_blank" class="rosarivo-regular">motion design</a></li>
             <li><a class="rosarivo-regular">chrisgroen00@gmail.com</a></li>
             <li><a href="https://www.instagram.com/crit.100/"><i class="fa fa-instagram" style="font-size:36px"></i>
-                <a href="https://www.linkedin.com/in/christian-groen-648199156/"><i class="fa fa-linkedin-square" style="font-size:36px"></i>
-                </li>
-            <li><a href="https://www.youtube.com/watch?v=BA_c7FyDLZw" target="_blank"class="rosarivo-regular">WALD - short film</a></li>
-            <li><a href="https://www.tiktok.com/@gimgamgimmygammy/video/7192330846970400042" target="_blank"class="rosarivo-regular">Chess Tiktok</a></li>
+            <a href="https://www.linkedin.com/in/christian-groen-648199156/"><i class="fa fa-linkedin-square" style="font-size:36px"></i></a>
+            </li>
+            <li><a href="https://www.youtube.com/watch?v=BA_c7FyDLZw" target="_blank" class="rosarivo-regular">WALD - short film</a></li>
+            <li><a href="https://www.tiktok.com/@gimgamgimmygammy/video/7192330846970400042" target="_blank" class="rosarivo-regular">Chess Tiktok</a></li>
         </ul>
     </div>
 
     <!-- JavaScript to switch video source based on screen size -->
     <script>
         window.addEventListener('load', function() {
+            var mobileWidth = 768; // Set threshold for mobile size
             var video = document.getElementById('bgVideo');
-            var mobileWidth = 768;
-
-            // Check screen width to determine if it's mobile or desktop
+            
+            // Check if the window width is less than or equal to mobileWidth
             if (window.innerWidth <= mobileWidth) {
-                // Mobile device - Use mobile video and remove desktop video
-                document.getElementById('desktopVideo').remove();
+                // Mobile view: remove desktop video sources, add mobile video sources
+                document.getElementById('desktopVideoWebM').remove();
                 document.getElementById('desktopVideoMp4').remove();
+                console.log('Mobile view detected. Switching to mobile video.');
             } else {
-                // Desktop device - Use desktop video and remove mobile video
-                document.getElementById('mobileVideo').remove();
+                // Desktop view: remove mobile video sources, add desktop video sources
+                document.getElementById('mobileVideoWebM').remove();
                 document.getElementById('mobileVideoMp4').remove();
+                console.log('Desktop view detected. Using desktop video.');
             }
+        });
+
+        // Re-check the screen size when the window is resized
+        window.addEventListener('resize', function() {
+            location.reload(); // Reload the page to reapply the correct video
         });
     </script>
 </body>
