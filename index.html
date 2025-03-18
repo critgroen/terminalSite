@@ -17,8 +17,12 @@
 <body>
     <div class="video-background">
         <video playsinline autoplay muted loop id="bgVideo">
+            <!-- Default video for desktop and mobile -->
             <source src="Motion Design Title.webm" type="video/webm">
             <source src="Motion Design Title.mp4" type="video/mp4">
+
+            <!-- Mobile video (same file used for both) -->
+            <source src="Motion Design Mobile.webm" type="video/webm" media="(max-width: 768px)">
             Your browser does not support the video tag.
         </video>
     </div>
