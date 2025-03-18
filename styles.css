@@ -25,19 +25,6 @@
     object-fit: contain; /* Preserve the full video without cropping */
 }
 
-@media (max-width: 767px) {
-    .video-background {
-        height: auto;
-        max-height: 100%;
-    }
-
-    #bgVideo {
-        object-fit: contain; /* Ensure the video is fully contained */
-        width: 100%;
-        height: auto; /* Allow height to adjust based on screen size */
-    }
-}
-
 .content {
     position: absolute;
     top: 60%; /* Start positioning from 60% of the viewport height */
