@@ -1,5 +1,3 @@
-﻿
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,17 +10,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rosarivo:ital@0;1&display=swap" rel="stylesheet">
-
 </head>
 <body>
     <div class="video-background">
         <video playsinline autoplay muted loop id="bgVideo">
             <!-- Default video for desktop and mobile -->
-            <source src="Motion Design Title.webm" type="video/webm">
-            <source src="Motion Design Title.mp4" type="video/mp4">
+            <source id="desktopVideo" src="Motion Design Title.webm" type="video/webm">
+            <source id="desktopVideoMp4" src="Motion Design Title.mp4" type="video/mp4">
 
-            <!-- Mobile video (same file used for both) -->
-            <source src="Motion Design Mobile.webm" type="video/webm" media="(max-width: 768px)">
+            <!-- Mobile video (this will be dynamically switched with JavaScript) -->
+            <source id="mobileVideo" src="Motion Design Mobile.webm" type="video/webm">
+            <source id="mobileVideoMp4" src="Motion Design Mobile.mp4" type="video/mp4">
+
             Your browser does not support the video tag.
         </video>
     </div>
@@ -39,5 +38,24 @@
             <li><a href="https://www.tiktok.com/@gimgamgimmygammy/video/7192330846970400042" target="_blank"class="rosarivo-regular">Chess Tiktok</a></li>
         </ul>
     </div>
+
+    <!-- JavaScript to switch video source based on screen size -->
+    <script>
+        window.addEventListener('load', function() {
+            var video = document.getElementById('bgVideo');
+            var mobileWidth = 768;
+
+            // Check screen width to determine if it's mobile or desktop
+            if (window.innerWidth <= mobileWidth) {
+                // Mobile device - Use mobile video and remove desktop video
+                document.getElementById('desktopVideo').remove();
+                document.getElementById('desktopVideoMp4').remove();
+            } else {
+                // Desktop device - Use desktop video and remove mobile video
+                document.getElementById('mobileVideo').remove();
+                document.getElementById('mobileVideoMp4').remove();
+            }
+        });
+    </script>
 </body>
 </html>
