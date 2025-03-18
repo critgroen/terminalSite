@@ -25,35 +25,31 @@
             <li><a href="https://www.dropbox.com/scl/fi/56royfudqlxqbdojvenj3/MOTIONGRAPHICS_Reel-2025.mp4?rlkey=8wmqrlpglz6i747n9b609knfz&st=fxpfirj6&dl=0" target="_blank" class="rosarivo-regular">motion design</a></li>
             <li><a class="rosarivo-regular">chrisgroen00@gmail.com</a></li>
             <li>
-                <a href="https://www.instagram.com/crit.100/"><i class="fa fa-instagram" style="font-size:36px"></i></a>
-                <a href="https://www.linkedin.com/in/christian-groen-648199156/"><i class="fa fa-linkedin-square" style="font-size:36px"></i></a>
+                <a href="https://www.instagram.com/crit.100/"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/christian-groen-648199156/"><i class="fa fa-linkedin-square"></i></a>
             </li>
             <li><a href="https://www.youtube.com/watch?v=BA_c7FyDLZw" target="_blank" class="rosarivo-regular">WALD - short film</a></li>
             <li><a href="https://www.tiktok.com/@gimgamgimmygammy/video/7192330846970400042" target="_blank" class="rosarivo-regular">Chess Tiktok</a></li>
         </ul>
     </div>
 
-    <!-- JavaScript to switch video source based on screen size -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             let video = document.getElementById("bgVideo");
             let source = document.getElementById("videoSource");
 
-            if (window.innerWidth <= 768) {
-                console.log("Mobile view detected. Switching to mobile video.");
-                source.src = "Motion Design Mobile.webm"; 
-            } else {
-                console.log("Desktop view detected. Using desktop video.");
-                source.src = "Motion Design Title.webm";
+            function updateVideoSource() {
+                if (window.innerWidth <= 768) {
+                    source.src = "Motion Design Mobile.webm"; 
+                } else {
+                    source.src = "Motion Design Title.webm";
+                }
+                video.load();
+                video.play();
             }
 
-            video.load(); // Reload video to apply changes
-            console.log("New video source:", source.src);
-        });
-
-        // Re-check screen size on window resize
-        window.addEventListener("resize", function() {
-            location.reload(); // Reload the page to reapply the correct video
+            updateVideoSource();
+            window.addEventListener("resize", updateVideoSource);
         });
     </script>
 </body>
