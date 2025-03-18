@@ -9,7 +9,7 @@
 }
 
 .video-background {
-    display: block; 
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
@@ -23,6 +23,15 @@
     width: 100%;
     height: 100%;
     object-fit: cover; /* Preserve the full video without cropping */
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    #bgVideo {
+        width: 100%;
+        height: auto; /* Adjust the height to maintain the aspect ratio */
+        object-fit: contain; /* Ensures the video doesn't get cropped */
+    }
 }
 
 .content {
