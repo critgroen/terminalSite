@@ -22,7 +22,7 @@
 #bgVideo {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Preserve the full video without cropping */
+    object-fit: cover; /* Preserve the full video without cropping */
 }
 
 /* For mobile devices */
@@ -30,7 +30,7 @@
     #bgVideo {
         width: 100%;
         height: auto; /* Adjust the height to maintain the aspect ratio */
-        object-fit: contain; /* Ensures the video doesn't get cropped */
+        object-fit: cover; /* Ensures the video doesn't get cropped */
     }
 }
 
